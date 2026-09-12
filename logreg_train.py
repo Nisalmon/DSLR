@@ -196,4 +196,7 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    try:
+        main(sys.argv)
+    except (Exception, KeyboardInterrupt) as e:
+        print(e)

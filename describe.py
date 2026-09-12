@@ -1,5 +1,6 @@
 import csv
 from utils import Dataset
+import sys
 
 
 def load_datasets(path):
@@ -55,8 +56,11 @@ def print_table(row_to_print, data, data_name):
 
 
 def main():
+    if len(sys.argv) != 2:
+        print("Erreur, veillez a bien donner le fichier dataset_train.csv en parametre")
+        return
     dataset = Dataset()
-    data = load_datasets("./datasets/dataset_test.csv")
+    data = load_datasets(sys.argv[1])
     dataset.set_all(data)
     print_headers(data[0])
     print_table(data[0], dataset.Count, "Count")
@@ -70,4 +74,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (Exception, KeyboardInterrupt) as e:
+        print(e)

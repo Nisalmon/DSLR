@@ -127,3 +127,18 @@ class Dataset:
         if highest == '':
             return 0
         return float(highest)
+
+
+class Houses:
+    def __init__(self, gryff, huffle, raven, slyth):
+        self.Gryffindor = gryff
+        self.Hufflepuff = huffle
+        self.Ravenclaw = raven
+        self.Slytherin = slyth
+
+
+class House:
+    def __init__(self, weights, means, stds):
+        self.weights = weights
+        self.means = means
+        self.stds = stds

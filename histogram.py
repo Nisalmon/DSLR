@@ -47,7 +47,7 @@ def get_valid_keys(data: list):
 
 def main():
     dataset = Dataset()
-    data = load_datasets("./datasets/dataset_test.csv")
+    data = load_datasets("./datasets/dataset_train.csv")
     dataset.set_all(data)
     lowest, second, third = get_lowest_std(dataset.Std, data)
     print("Here is the top 3 courses with the most homogeneous score "
@@ -61,4 +61,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except (Exception, KeyboardInterrupt) as e:
+        print(e)
